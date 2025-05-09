@@ -1,12 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-const Header = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+const Header = () => (
+  <header className="flex justify-between items-center p-4 border-b dark:border-gray-700">
+    <h1 className="text-2xl font-bold">🎬 Movie Explorer</h1>
+  </header>
+);
 
-export default Header
-
+export default Header;
