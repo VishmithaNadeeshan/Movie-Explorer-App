@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useMovies } from '../context/MovieContext';
 
-const API_KEY = 'YOUR_TMDB_API_KEY';
+const API_KEY = '9cacd67e0ba7fee5b5ac581763383e3d';
 
 const MovieDetail = () => {
   const { selectedMovie, setSelectedMovie } = useMovies();
