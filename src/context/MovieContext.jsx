@@ -14,14 +14,9 @@ export const MovieProvider = ({ children }) => {
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem('favorites')) || []);
   const [page, setPage] = useState(1);
-  
-  useEffect(() => {
-    if (searchQuery === '') {
-    setMovies([]);
-    setPage(1);
-    }
-    }, [searchQuery]);
-
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem('theme') === 'dark';
+  });
   useEffect(() => {
     fetchTrending();
     if (searchQuery) fetchMovies(searchQuery, 1);
@@ -35,7 +30,10 @@ export const MovieProvider = ({ children }) => {
     localStorage.setItem('lastSearch', searchQuery);
   }, [searchQuery]);
 
-  
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', darkMode);
+    localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+  }, [darkMode]);
 
   const fetchTrending = async () => {
     try {
@@ -72,7 +70,7 @@ export const MovieProvider = ({ children }) => {
     trending,
     selectedMovie, setSelectedMovie,
     favorites, setFavorites,
-    
+    darkMode, setDarkMode,
   };
 
   return (

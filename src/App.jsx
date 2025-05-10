@@ -10,7 +10,7 @@ import SearchResults from './component/SearchResaults';
 function App() {
   return (
     <MovieProvider>
-      <div className="min-h-screen bg-black text-white transition-colors">
+      <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors">
         <Header />
         <main className="p-4">
           <SearchBar />
