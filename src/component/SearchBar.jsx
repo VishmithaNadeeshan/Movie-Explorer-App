@@ -11,7 +11,8 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="flex gap-2 my-4">
+    <div className="flex justify-end my-4">
+    <div className="flex gap-2 w-full max-w-md">
       <input
         type="text"
         placeholder="Search movies..."
@@ -22,6 +23,7 @@ const SearchBar = () => {
       <button onClick={handleSearch} className="px-4 py-2 bg-blue-600 text-white rounded">
         Search
       </button>
+    </div>
     </div>
   );
 };

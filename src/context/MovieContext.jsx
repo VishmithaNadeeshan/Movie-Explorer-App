@@ -15,6 +15,12 @@ export const MovieProvider = ({ children }) => {
   const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem('favorites')) || []);
   const [page, setPage] = useState(1);
   
+  useEffect(() => {
+    if (searchQuery === '') {
+    setMovies([]);
+    setPage(1);
+    }
+    }, [searchQuery]);
 
   useEffect(() => {
     fetchTrending();
